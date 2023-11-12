@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Listado de productos </title>
+  <title>Mostrando Categorías</title>
 </head>
 <body>
   <div class="container">
@@ -23,7 +23,6 @@
       <div class="col-md-3 text-end">
         <a href="/" class="btn btn-primary">Salir</a>
       </div>
-      
     </header>
   </div>
   <div class="bd-example">
@@ -31,31 +30,22 @@
         <thead>
       <tr>
         <th>ID</th>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Potencia</th>
-        <th>Modelo</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-      
-        <th>Opciones</th>
+        <th>Url</th>
+        <th>Producto ID</th>
+        <th>destacado</th>
+
       </tr>
     </thead>
     <tbody>
       <tr>
-        <% producto.forEach(product => { %>
+        <% imagen.forEach(image => { %>
           <tr>
-            <td><%= product.id %></td>
-            <td><%= product.code %></td> 
-            <td><%= product.name %></td>
-            <td><%= product.power %></td>
-            <td><%= product.model %></td>
-            <td><%= product.description %></td>
-            <td><%= product.price %></td>
-            
-            
-            <td><a href="/edit/<%=product.id%>" class="btn btn-dark">Editar</a>
-              <a href="/delete/<%=product.id%>" class="btn btn-dark">Eliminar</a>
+            <td><%= image.id %></td>
+           <td> <img alt="5" width="210" height="130" src="<%=image.url%>"> </td>
+            <td><%= image.producto_id%></td>
+            <td><%= image.destacado %></td>
+            <td><a href="/editima/<%=image.id%>" class="btn btn-dark">Editar</a>
+              <a href="/deleteima/<%=image.id%>" class="btn btn-dark">Eliminar</a>
             </td>
           <% }); %></td>
 
@@ -66,7 +56,7 @@
     </table>
   </div>
 
-<a href="/insert" class="btn btn-dark">Insertar producto</a>
+<a href="/insertima" class="btn btn-dark">Insertar Imagen</a>
 </tbody>
 
 </body>

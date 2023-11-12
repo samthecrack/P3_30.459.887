@@ -1,21 +1,23 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LavaMovil/Login.com</title>
-  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+  <title>Login</title>
+  <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <header>
     <div class="menu logo-nav">
-      <a href="/index" class="logo">LavaMovil</a>
+      <a href="/view" class="logo">LavaMovil</a>
       <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
       <nav class="navigation">
         <ul>
           <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/productos">Destacados</a></li>
-          <li><a href="/contacto">Administrar</a></li>
+          <li><a href="/destacados">Destacados</a></li>
+          <li><a href="/login">Administrar</a></li>
           <li>Lava a tu ritmo, en cualquier lugar</li>
         </ul>
       </nav>
@@ -23,13 +25,21 @@
   </header>
   
   <div class="container-contacto">
-  <form action="#" id="form" method="POST">
-    <h2>CONTACTO</h2>
+  
+
+  <form action="/login" id="form" method="post">
+    <h2>Inicio</h2>
     <br>
-    <input type="text" name="user" id="Username" placeholder="Ingrese su Nombre" required>
-    <input type="password" name="pass" id="Password" placeholder="Ingrese su Cntraseña" required>
+    <label for="username">Nombre de Usuario</label>
+  
+    <input type="text" placeholder="Usuario" name="user" value="" required>
+
+    <label for="password" required>Contraseña</label>
+    <input type="password" placeholder="Contraseña" name="pass" value="" required>
+    
     <input type="submit" id="button-contacto" value="ENVIAR" class="button">
   </form>
+
   </div>
 
     <footer class="footer-section">
@@ -38,15 +48,15 @@
               <div class="row-footer">
                   <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                       <div class="copyright-text">
-                          <p>Copyright &copy; 2020, todos los derechos reservados <a href="/index">LavaMovil</a></p>
+                          <p>Copyright &copy; 2020, todos los derechos reservados <a href="/view">LavaMovil</a></p>
                       </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                       <div class="footer-menu">
                           <ul>
                               <li><a href="/nosotros">Nosotros</a></li>
-                              <li><a href="/productos">Destacados</a></li>
-                              <li><a href="/contacto">Administrar</a></li>
+                              <li><a href="/destacados">Destacados</a></li>
+                              <li><a href="/login">Administrar</a></li>
                           </ul>
                       </div>
                   </div>
