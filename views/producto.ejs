@@ -21,34 +21,24 @@
         </nav>
       </div>
     </header>
-
-
-<main> 
-  <div class="contenedor">
-    <a href="/listado" class="button"> Ver en lista</a> 
-  </div>
-   
-
-        <div class="modal" id="modal">
-          <div class="modal-content">
-            <img src="" alt="" class="modal-img" id="modal-img">
-          </div>
-          <div class="modal-boton" id="modal-boton">X</div>
+<main>
+ 
+    <div class="container1">
+        <div class="columna3">
+          <h2>Nombre</h2><p><%= producto.name %></p><br>
+          <h2>Codigo</h2><p><%= producto.code %></p><br>
+          <h2>Modelo</h2><p><%= producto.model %></p><br>
+          <h2>Descripcion</h2><p><%= producto.description %></p><br>
+          
+         
+          
         </div>
+        <div class="columna4">
+          <h2>Poder</h2><p><%= producto.power %></p><br>
+            <h2>Precio</h2><p><%= producto.price %></p>
 
-        <div class="container-productos" id="lista-productos">
-
-            <% producto.forEach(product => { %>
-              <tr>
-                <div class="card">
-                
-                <h2><a href="/producto/<%=product.id%>"><%= product.name %></a></h2>
-               
-                <p>Modelo: <small class="precio"><%= product.model %></small></p>
-                <p>Precio: USD.<small class="precio"><%= product.price %></small></p>
-                <p>Potencia: <small class="precio"><%= product.power %></small></p><br>
-              <% imagen.forEach(foto => { %>
-              <% if(product.id == foto.producto_id) { %>
+            <% imagen.forEach(foto => { %>
+              <% if(producto.id == foto.producto_id) { %>
                 <div class="contenedor-imagen">
                   <img src="<%=foto.url%>">
               </div>
@@ -57,30 +47,20 @@
               <% }%>
               <% }); %>
 
+           
 
-
-
-              </div>
-              <% }); %></td>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-         
+            
+                <a href="/compra" class="button"> Comprar</a>
+           
         </div>
+    </div>
+    
+         
+        
 </main>
   
 
-<footer class="footer-section">
+<footer class="footer-section1">
   <div class="copyright-area">
       <div class="container-footer">
           <div class="row-footer">
@@ -102,14 +82,5 @@
       </div>
   </div>
 </footer> 
-
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script  src="assets/js/scripts.js"></script>
-    <script src="assets/js/carrito.js"></script>
-    <script src="assets/js/pedido.js"></script>
-    <script src="assets/js/compra.js"></script>
 </body>
-</html>
+</html> 

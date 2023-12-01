@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,66 +21,60 @@
         </nav>
       </div>
     </header>
-
-
-<main> 
+<main>
   <div class="contenedor">
-    <a href="/listado" class="button"> Ver en lista</a> 
-  </div>
-   
+    <a href="/destacados" class="button"> Ver en cuadricula</a> 
+    <a href="/filtro" class="button"> Filtrar</a> 
+    
+    
 
-        <div class="modal" id="modal">
-          <div class="modal-content">
-            <img src="" alt="" class="modal-img" id="modal-img">
-          </div>
-          <div class="modal-boton" id="modal-boton">X</div>
-        </div>
-
-        <div class="container-productos" id="lista-productos">
-
-            <% producto.forEach(product => { %>
-              <tr>
-                <div class="card">
-                
-                <h2><a href="/producto/<%=product.id%>"><%= product.name %></a></h2>
-               
-                <p>Modelo: <small class="precio"><%= product.model %></small></p>
-                <p>Precio: USD.<small class="precio"><%= product.price %></small></p>
-                <p>Potencia: <small class="precio"><%= product.power %></small></p><br>
+    
+      <table class="content-table">
+          <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Potencia</th>
+          <th>Modelo</th>
+          <th>Descripción</th>
+          <th>Precio</th> 
+          <th>Imagen</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr>
+          <% producto.forEach(product => { %>
+            <tr>
+              
+              <td><%= product.code %></td> 
+              <td><a href="/producto/<%=product.id%>"><%= product.name %></a></td>
+              <td><%= product.power %></td>
+              <td><%= product.model %></td>
+              <td><%= product.description %></td>
+              <td><%= product.price %></td>
+              <td>
               <% imagen.forEach(foto => { %>
               <% if(product.id == foto.producto_id) { %>
-                <div class="contenedor-imagen">
+                <div class="contenedor-imagen1">
                   <img src="<%=foto.url%>">
               </div>
               <% } else { %>
                  <p></p>
               <% }%>
               <% }); %>
+              </td>
 
-
-
-
-              </div>
-              <% }); %></td>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-         
-        </div>
+            <% }); %></td>
+        </tr>
+      </tbody>
+    
+      </table>
+   
+       
 </main>
   
 
-<footer class="footer-section">
+<footer class="footer-section1">
   <div class="copyright-area">
       <div class="container-footer">
           <div class="row-footer">
@@ -102,14 +96,5 @@
       </div>
   </div>
 </footer> 
-
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script  src="assets/js/scripts.js"></script>
-    <script src="assets/js/carrito.js"></script>
-    <script src="assets/js/pedido.js"></script>
-    <script src="assets/js/compra.js"></script>
 </body>
-</html>
+</html> 

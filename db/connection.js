@@ -6,4 +6,4 @@ const db = new sqlite3.Database('./db/database.sqlite', (err) =>{
     db.run('CREATE TABLE IF NOT EXISTS imagen (id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT, producto_id INTEGER, destacado TEXT NOT NULL, FOREIGN KEY(producto_id) REFERENCES producto(id))');
 console.log('base de datos creada')
 });
-module.exports = db;
+module.exports = db; 

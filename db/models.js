@@ -4,6 +4,11 @@ const db = require('./connection');
 let querys = {
     getproducto: 'SELECT * FROM producto',
     getproductoID: 'SELECT * FROM producto WHERE id = ?',
+    getproductoNO: 'SELECT * FROM producto ORDER BY name ASC',
+    getproductoDE: 'SELECT * FROM producto ORDER BY description ASC',
+    getproductoCA: 'SELECT * FROM producto ORDER BY category_id ASC',
+    getproductoMO: 'SELECT * FROM producto ORDER BY model ASC',
+    getproductoPO: 'SELECT * FROM producto ORDER BY power ASC',
     getimagenID: 'SELECT * FROM imagen WHERE id = ?',
     insertproducto: 'INSERT INTO producto (code, name, power, model, description, price, category_id) VALUES(?, ?, ?, ?, ?, ?, ?)',
     getimagen: 'SELECT * FROM imagen',
@@ -27,10 +32,53 @@ module.exports = {
                 resolve(rows);
             })
         })
-
-    
     },
     
+    getproductoNO(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoNO, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getproductoDE(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoDE, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getproductoCA(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoCA, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getproductoMO(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoMO, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getproductoPO(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoPO, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
     insertproducto(code, name, power, model, description, price, category_id){
         return new Promise((resolve, reject) => {
             db.run(querys.insertproducto, [code, name, power, model, description, price, category_id], (err) => {
