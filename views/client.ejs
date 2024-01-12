@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SBBY61GVSE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SBBY61GVSE');
+</script>
+
+<script>
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
+</script> 
+
 <body>
   <header>
     <div class="menu logo-nav">
@@ -15,7 +30,7 @@
       <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
       <nav class="navigation">
         <ul>
-          <li><a href="/login">Administrar</a></li>
+            <li><a href="/login">Administrar</a></li>
             <li><a href="/nosotros">Nosotros</a></li>
             <li><a href="/destacados">Productos</a></li>
             <li>Lava a tu ritmo, en cualquier lugar</li>
@@ -25,22 +40,31 @@
   </header>
   
   <div class="container-contacto">
-  
+   
 
-  <form action="/login" id="form" method="post">
-    <h2>Inicio</h2>
+  <form action="/client" id="form" method="post">
+    <h2>Registrarse</h2>
     <br>
-    <label for="username">Nombre de Usuario</label>
-  
-    <input type="text" placeholder="Usuario" name="user" value="" required>
 
-    <label for="password" required>Contraseña</label>
-    <input type="password" placeholder="Contraseña" name="pass" value="" required>
+    <label for="email">Correo electronico</label>
+    <input type="email" name="email" value="" placeholder="Email" required>
+
     
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button">
+    <label for="password" required>Contraseña</label>
+    <input type="password" name="pass" value="" placeholder="Contraseña" required>
+    
+    <input type="submit" id="button-contacto" value="ENVIAR" class="button" href="/client">
+    
+    
+      <div class="g-recaptcha" data-sitekey= "6Lf6RkomAAAAAJQTz7cReF5u_ncqmeckT-trRrry" ></div>
+    
+   
   </form>
 
+ 
+
   </div>
+ 
 
     <footer class="footer-section">
       <div class="copyright-area">
@@ -65,12 +89,5 @@
           </div>
       </div>
     </footer>  
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script  src="assets/js/scripts.js"></script>
-    <script  src="assets/js/contacto.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,32 +14,38 @@
       <nav class="navigation">
         <ul>
           <li><a href="/login">Administrar</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/destacados">Productos</a></li>
-            <li>Lava a tu ritmo, en cualquier lugar</li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/destacados">Productos</a></li>
+          <li>Lava a tu ritmo, en cualquier lugar</li>
         </ul>
       </nav>
     </div>
   </header>
   
   <div class="container-contacto">
-  
+   
 
-  <form action="/login" id="form" method="post">
-    <h2>Inicio</h2>
+  <form action="/iniciar" id="form" method="post">
+    <h2>Iniciar sesion</h2>
     <br>
-    <label for="username">Nombre de Usuario</label>
-  
-    <input type="text" placeholder="Usuario" name="user" value="" required>
+    <label for="email">Correo electronico</label>
+    <input type="email" name="email" value="" placeholder="Email" required>
 
-    <label for="password" required>Contraseña</label>
-    <input type="password" placeholder="Contraseña" name="pass" value="" required>
     
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button">
+    <label for="password" required>Contraseña</label>
+    <input type="password" name="pass" value="" placeholder="Contraseña" required>
+    
+    <input type="submit" id="button-contacto" value="ENVIAR" class="button" href="/client">
+    
+        
+   
   </form>
 
-  </div>
+ 
 
+  </div>
+ 
+ 
     <footer class="footer-section">
       <div class="copyright-area">
           <div class="container-footer">
@@ -65,12 +69,5 @@
           </div>
       </div>
     </footer>  
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script  src="assets/js/scripts.js"></script>
-    <script  src="assets/js/contacto.js"></script>
 </body>
 </html>

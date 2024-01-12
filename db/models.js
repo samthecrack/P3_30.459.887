@@ -21,10 +21,51 @@ let querys = {
     updatecategory: 'UPDATE category SET name = ? WHERE id = ?',
     deleteproducto: 'DELETE FROM producto WHERE id = ?',
     deleteimagen: 'DELETE FROM imagen WHERE id = ?',
-    deletecategory: 'DELETE FROM category WHERE id = ?'
-
+    deletecategory: 'DELETE FROM category WHERE id = ?',
+    insertclient: 'INSERT INTO client (email, pass) VALUES(?, ?)',
+    getclient: 'SELECT * FROM client',
+    getcompra: 'SELECT * FROM compra',
+    insertcompra: 'INSERT INTO compra (cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente) VALUES(?, ?, ?, ?, ?, ?)'
 }
 module.exports = {
+    insertcompra(cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente){
+        return new Promise((resolve, reject) => {
+            db.run(querys.insertcompra, [cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente], (err) => {
+                if(err) reject(err);
+                    resolve()
+            })
+        })
+    
+    },
+
+    insertclient(email, pass){
+        return new Promise((resolve, reject) => {
+            db.run(querys.insertclient, [email, pass], (err) => {
+                if(err) reject(err);
+                    resolve()
+            })
+        })
+    
+    },
+
+    getclient(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getclient, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getcompra(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getcompra, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
     getproducto(){
         return new Promise((resolve, reject)=>{
             db.all(querys.getproducto, (err,rows)=>{
