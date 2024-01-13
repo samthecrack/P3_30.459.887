@@ -316,105 +316,6 @@ router.get('/payments', (req, res) => {
   res.render('payments') 
 })
 
-router.post('/',
-    authenticateToken,
-    body('full-name').notEmpty(),
-    body('card-number').notEmpty().isCreditCard(),
-    body('expiration-month').isLength({ min: 1, max: 2 }),
-    body('expiration-year').isLength({ min: 4, max: 4 }),
-    body('cvv').isLength({ min: 3, max: 4 }),
-    body('amount').notEmpty(),
-    body('currency').isLength({ min: 3, max: 3 }),
-    body('description').notEmpty(),
-    async function (req, res) {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
-        const card_number = req.body['card-number'];
-        const full_name = req.body['full-name'];
-
-        if (!cards.cardExists(card_number)) {
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid card number',
-                code: '001',
-            });
-        }
-
-        if (full_name == 'REJECTED') {
-            return res.status(400).json({
-                success: false,
-                message: 'Card rejected',
-                code: '002',
-            });
-        }
-
-        if (full_name == 'ERROR') {
-            return res.status(400).json({
-                success: false,
-                message: 'Card error',
-                code: '003',
-            });
-        }
-
-        if (full_name == 'INSUFFICIENT') {
-            return res.status(400).json({
-                success: false,
-                message: 'Insufficient funds',
-                code: '004',
-            });
-        }
-
-        const data = {
-            transaction_id: uuidv4(),
-            amount: req.body['amount'],
-            currency: req.body['currency'],
-            description: req.body['description'],
-            reference: req.body['reference'] ?? null,
-            date: new Date().toISOString(),
-        }
-
-        await database.insert(data);
-
-        return res.redirect('/payments/' + data.transaction_id);
-    });
-
-    router.get('/cards', function (req, res) {
-      res.json(cards.getList());
-  });
-
-
-  router.get('/api-key', function (req, res) {
-    const payload = {
-        name: 'John Doe',
-        date: new Date().toISOString(),
-    };
-
-    const apiKey = jwt.sign(payload, process.env.JWT_KEY);
-    res.json({ apiKey });
-});
-
-router.get('/:id', async function (req, res) {
-  const id = req.params.id;
-  const transaction = await database.select(id);
-
-  if (!transaction) {
-      return res.status(404).json({
-          success: false,
-          message: 'Transaction not found',
-          code: '005',
-      });
-  }
-
-  return res.status(200).json({
-      success: true,
-      message: 'Payment successful',
-      data: transaction,
-  });
-});
-
 
 
 
@@ -686,5 +587,106 @@ router.get('/deleteima/:id', (req, res)=>{
   console.log(err);
   });
 })
+
+router.post('/',
+    authenticateToken,
+    body('full-name').notEmpty(),
+    body('card-number').notEmpty().isCreditCard(),
+    body('expiration-month').isLength({ min: 1, max: 2 }),
+    body('expiration-year').isLength({ min: 4, max: 4 }),
+    body('cvv').isLength({ min: 3, max: 4 }),
+    body('amount').notEmpty(),
+    body('currency').isLength({ min: 3, max: 3 }),
+    body('description').notEmpty(),
+    async function (req, res) {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const card_number = req.body['card-number'];
+        const full_name = req.body['full-name'];
+
+        if (!cards.cardExists(card_number)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid card number',
+                code: '001',
+            });
+        }
+
+        if (full_name == 'REJECTED') {
+            return res.status(400).json({
+                success: false,
+                message: 'Card rejected',
+                code: '002',
+            });
+        }
+
+        if (full_name == 'ERROR') {
+            return res.status(400).json({
+                success: false,
+                message: 'Card error',
+                code: '003',
+            });
+        }
+
+        if (full_name == 'INSUFFICIENT') {
+            return res.status(400).json({
+                success: false,
+                message: 'Insufficient funds',
+                code: '004',
+            });
+        }
+
+        const data = {
+            transaction_id: uuidv4(),
+            amount: req.body['amount'],
+            currency: req.body['currency'],
+            description: req.body['description'],
+            reference: req.body['reference'] ?? null,
+            date: new Date().toISOString(),
+        }
+
+        await database.insert(data);
+
+        return res.redirect('/payments/' + data.transaction_id);
+    });
+
+    router.get('/cards', function (req, res) {
+      res.json(cards.getList());
+  });
+
+
+  router.get('/api-key', function (req, res) {
+    const payload = {
+        name: 'John Doe',
+        date: new Date().toISOString(),
+    };
+
+    const apiKey = jwt.sign(payload, process.env.JWT_KEY);
+    res.json({ apiKey });
+});
+
+router.get('/:id', async function (req, res) {
+  const id = req.params.id;
+  const transaction = await database.select(id);
+
+  if (!transaction) {
+      return res.status(404).json({
+          success: false,
+          message: 'Transaction not found',
+          code: '005',
+      });
+  }
+
+  return res.status(200).json({
+      success: true,
+      message: 'Payment successful',
+      data: transaction,
+  });
+});
+
+
 
 module.exports = router;
