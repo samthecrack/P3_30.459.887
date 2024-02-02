@@ -135,7 +135,7 @@ router.post('/recuperar', (req, res) => {
     //Lista de correos 
     to: [email],
     subject: 'Task 4: Additional features ',
-    text: "Ingrese en el siguiente link para recuperar su contraseña: https://nutrichicha.onrender.com"
+    text: "Ingrese en el siguiente link para recuperar su contraseña: https://lavamovil.onrender.com/client"
   };
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
@@ -620,10 +620,10 @@ router.get('/login', (req, res) => {
 router.post('/login', function(req, res, next) {
   let user = req.body.user
   let pass = req.body.pass
-  if (user == process.env.username && pass == process.env.clave)  {
+  if (user == process.env.user && pass == process.env.clave)  {
       res.render('administrar');
   } else {
-    res.render('login', { error: 'Datos incorrectos' });
+    res.render('view', { error: 'Datos incorrectos' });
   }
 })
 
