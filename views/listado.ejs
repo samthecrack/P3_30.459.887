@@ -38,7 +38,9 @@
           <th>Modelo</th>
           <th>Descripción</th>
           <th>Precio</th> 
+          <th>Puntuacion</th>
           <th>Imagen</th>
+          
         </tr>
       </thead> 
       <tbody>
@@ -53,6 +55,17 @@
               <td><%= product.description %></td>
               <td><%= product.price %></td>
               <td>
+                <% promedio.forEach(promedio => { %>
+                <% if(product.id == promedio.producto_id) { %>
+                  <%= promedio.promedio %>
+                  
+                <% } else { %>
+                   <p></p>
+                <% }%>
+                <% }); %>
+              </td>
+
+              <td>
               <% imagen.forEach(foto => { %>
               <% if(product.id == foto.producto_id) { %>
                 <div class="contenedor-imagen1">
@@ -63,6 +76,8 @@
               <% }%>
               <% }); %>
               </td>
+
+              
 
             <% }); %></td>
         </tr>
@@ -87,9 +102,9 @@
                   <div class="footer-menu">
                       <ul>
                         <li><a href="/login">Administrar</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/sesion"> Iniciar sesion</a></li>
-                        <li><a href="/client">Registrarse</a></li>
+                          <li><a href="/nosotros">Nosotros</a></li>
+                          <li><a href="/sesion"> Puntuar productos</a></li>
+                          <li><a href="/client">Registrarse</a></li>
                       </ul>
                   </div>
               </div>

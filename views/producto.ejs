@@ -36,6 +36,7 @@
         <div class="columna4">
           <h2>Poder</h2><p><%= producto.power %></p><br>
             <h2>Precio</h2><p><%= producto.price %></p>
+            <h2>Puntuacion promedio</h2><p><%= promedio %></p>
 
             <% imagen.forEach(foto => { %>
               <% if(producto.id == foto.producto_id) { %>
@@ -55,7 +56,7 @@
         </div>
     </div>
     
-         
+          
         
 </main>
   
@@ -74,7 +75,7 @@
                       <ul>
                         <li><a href="/login">Administrar</a></li>
                         <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/sesion"> Iniciar sesion</a></li>
+                        <li><a href="/sesion"> Puntuar productos</a></li>
                         <li><a href="/client">Registrarse</a></li>
                       </ul>
                   </div>

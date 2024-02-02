@@ -4,14 +4,16 @@ const db = require('./connection');
 let querys = {
     getproducto: 'SELECT * FROM producto',
     getproductoID: 'SELECT * FROM producto WHERE id = ?',
-    getproductoNO: 'SELECT * FROM producto ORDER BY name ASC',
-    getproductoDE: 'SELECT * FROM producto ORDER BY description ASC',
-    getproductoCA: 'SELECT * FROM producto ORDER BY category_id ASC',
-    getproductoMO: 'SELECT * FROM producto ORDER BY model ASC',
-    getproductoPO: 'SELECT * FROM producto ORDER BY power ASC',
+    getproductoNO: 'SELECT * FROM producto ORDER BY name DESC',
+    getproductoDE: 'SELECT * FROM producto ORDER BY description DESC',
+    getproductoCA: 'SELECT * FROM producto ORDER BY category_id DESC',
+    getproductoMO: 'SELECT * FROM producto ORDER BY model DESC',
+    getproductoPO: 'SELECT * FROM producto ORDER BY power DESC',
+    getproductoPU: 'SELECT * FROM producto JOIN promedio ON producto.id = promedio.producto_id ORDER BY promedio DESC',
     getimagenID: 'SELECT * FROM imagen WHERE id = ?',
     insertproducto: 'INSERT INTO producto (code, name, power, model, description, price, category_id) VALUES(?, ?, ?, ?, ?, ?, ?)',
     getimagen: 'SELECT * FROM imagen',
+    getpromedio: 'SELECT * FROM promedio',
     getcategory: 'SELECT * FROM category',
     getcategoryID: 'SELECT * FROM category WHERE id = ?',
     insertimagen: 'INSERT INTO imagen (url, producto_id, destacado) VALUES(?, ?, ?)',
@@ -25,7 +27,9 @@ let querys = {
     insertclient: 'INSERT INTO client (email, pass) VALUES(?, ?)',
     getclient: 'SELECT * FROM client',
     getcompra: 'SELECT * FROM compra',
-    insertcompra: 'INSERT INTO compra (cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente) VALUES(?, ?, ?, ?, ?, ?)'
+    insertcompra: 'INSERT INTO compra (cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente) VALUES(?, ?, ?, ?, ?, ?)',
+    insertpuntaje: 'INSERT INTO calificaciones (qualification, producto_id) VALUES(?, ?)'
+    
 }
 module.exports = {
     insertcompra(cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente){
@@ -36,6 +40,25 @@ module.exports = {
             })
         })
     
+    },
+
+    insertpuntaje(qualification, producto_id){
+        return new Promise((resolve, reject) => {
+            db.run(querys.insertpuntaje, [qualification, producto_id], (err) => {
+                if(err) reject(err);
+                    resolve()
+            })
+        })
+    
+    },
+
+    getpromedio(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getpromedio, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
     },
 
     insertclient(email, pass){
@@ -114,6 +137,15 @@ module.exports = {
     getproductoPO(){
         return new Promise((resolve, reject)=>{
             db.all(querys.getproductoPO, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    getproductoPU(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getproductoPU, (err,rows)=>{
                 if(err) reject(err);
                 resolve(rows);
             })

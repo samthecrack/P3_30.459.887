@@ -25,21 +25,21 @@
   <div class="container-contacto">
    
 
-  <form action="/login" id="form" method="post">
-    <h2>Iniciar sesion</h2>
-    <br>
-    <label for="username">Correo electronico</label>
+    <form action="/sesion" id="form" method="post">
+      <h2>Iniciar sesion</h2>
+      <br>
+      <label for="email">Correo electronico</label>
+      <input type="email" name="email" value="" placeholder="Email" required>
   
-    <input type="text" placeholder="Email" name="user" value="" required>
+      
+      <label for="password" required>Contraseña</label>
+      <input type="password" name="pass" value="" placeholder="Contraseña" required>
+      
+      <input type="submit" id="button-contacto" value="ENVIAR" class="button" >
+      <a href="/recuperar">Recuperar Contraseña</a>
 
-    <label for="password" required>Contraseña</label>
-    <input type="password" placeholder="Contraseña" name="pass" value="" required>
+    </form>
     
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button">
-    
-        
-   
-  </form>
 
  
 
@@ -60,7 +60,7 @@
                           <ul>
                             <li><a href="/login">Administrar</a></li>
                             <li><a href="/nosotros">Nosotros</a></li>
-                            <li><a href="/sesion"> Iniciar sesion</a></li>
+                            <li><a href="/sesion"> Puntuar productos</a></li>
                             <li><a href="/client">Registrarse</a></li>
                           </ul>
                       </div>

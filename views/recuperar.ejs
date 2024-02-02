@@ -5,24 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SBBY61GVSE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SBBY61GVSE');
-</script>
-
-<script>
-  function onSubmit(token) {
-    document.getElementById("demo-form").submit();
-  }
-</script> 
-
 <body>
   <header>
     <div class="menu logo-nav">
@@ -30,10 +13,10 @@
       <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
       <nav class="navigation">
         <ul>
-            <li><a href="/login">Administrar</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/destacados">Productos</a></li>
-            <li>Lava a tu ritmo, en cualquier lugar</li>
+          <li><a href="/login">Administrar</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/destacados">Productos</a></li>
+          <li>Lava a tu ritmo, en cualquier lugar</li>
         </ul>
       </nav>
     </div>
@@ -42,24 +25,20 @@
   <div class="container-contacto">
    
 
-  <form action="/client" id="form" method="post">
-    <h2>Registrarse</h2>
-    <br>
+    <form action="/recuperar" id="form" method="post">
+      <h2>Recuperar contraseña</h2>
+      <br>
+      <label for="email">Correo electronico</label>
+      <input type="email" name="email" value="" placeholder="Email" required>
+  
+      
+      
+      
+      <input type="submit" id="button-contacto" value="ENVIAR" class="button" >
+    
 
-    <label for="email">Correo electronico</label>
-    <input type="email" name="email" value="" placeholder="Email" required>
-
+    </form>
     
-    <label for="password" required>Contraseña</label>
-    <input type="password" name="pass" value="" placeholder="Contraseña" required>
-    
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button" >
-    
-    
-      <div class="g-recaptcha" data-sitekey= "6Lf6RkomAAAAAJQTz7cReF5u_ncqmeckT-trRrry" ></div>
-    
-   
-  </form>
 
  
 
