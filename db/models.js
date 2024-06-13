@@ -2,6 +2,13 @@
 const db = require('./connection');
 
 let querys = {
+    getsimoncitos: 'SELECT * FROM simoncitos',
+    getsimoncitosID: 'SELECT * FROM simoncitos WHERE id = ?',
+    insertsimoncitos: 'INSERT INTO simoncitos (simoncito, codigo, nombre, direccion, referencia, escuela, DEA, director, telefono, correo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    updatesimoncitos: 'UPDATE simoncitos SET simoncito = ?, codigo = ?, nombre = ?, direccion = ?, referencia = ?, escuela = ?, DEA = ?, director = ?, telefono = ?, correo = ? WHERE id = ?',
+    deletesimoncitos: 'DELETE FROM simoncitos WHERE id = ?',
+
+
     getproducto: 'SELECT * FROM producto',
     getproductoID: 'SELECT * FROM producto WHERE id = ?',
     getproductoNO: 'SELECT * FROM producto ORDER BY name DESC',
@@ -32,6 +39,54 @@ let querys = {
     
 }
 module.exports = {
+    getsimoncitos(){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getsimoncitos, (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    insertsimoncitos(simoncito, codigo, nombre, direccion, referencia, escuela, DEA, director, telefono, correo){
+        return new Promise((resolve, reject) => {
+            db.run(querys.insertsimoncitos, [simoncito, codigo, nombre, direccion, referencia, escuela, DEA, director, telefono, correo], (err) => {
+                if(err) reject(err);
+                    resolve()
+            })
+        })
+    
+    },
+
+    getsimoncitosID(id){
+        return new Promise((resolve, reject)=>{
+            db.all(querys.getsimoncitosID, [id], (err,rows)=>{
+                if(err) reject(err);
+                resolve(rows);
+            })
+        })
+    },
+
+    updatesimoncitos(id, simoncito, codigo, nombre, direccion, referencia, escuela, DEA, director, telefono, correo){
+        return new Promise((resolve, reject) => {
+            db.run(querys.updatesimoncitos, [simoncito, codigo, nombre, direccion, referencia, escuela, DEA, director, telefono, correo, id], (err) => {
+                if(err) reject(err);
+                resolve();
+            })
+        })
+    },
+
+    deletesimoncitos(id){
+        return new Promise((resolve, reject) => {
+            db.run(querys.deletesimoncitos, [id], (err) => {
+                if(err) reject(err);
+                resolve();
+            })
+        })
+    },
+
+
+
     insertcompra(cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente){
         return new Promise((resolve, reject) => {
             db.run(querys.insertcompra, [cliente_id, producto_id, cantidad, total_pagado, fecha, ip_cliente], (err) => {

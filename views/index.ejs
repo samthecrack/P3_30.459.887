@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Listado de productos </title>
+  <title>Listado de simoncitosos </title>
 </head>
 <body>
   <div class="container">
@@ -30,32 +30,38 @@
     <table class="table">
         <thead>
       <tr>
-        <th>ID</th>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Potencia</th>
-        <th>Modelo</th>
-        <th>Descripción</th>
-        <th>Precio</th>
+        <th>Simoncito</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Referencia</th>
+            <th>Escuela</th>
+            <th>DEA</th> 
+            <th>Director</th>
+            <th>Telefono</th>
+            <th>Correo</th>
       
         <th>Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <% producto.forEach(product => { %>
+        <% simoncito.forEach(simoncitos => { %>
           <tr>
-            <td><%= product.id %></td>
-            <td><%= product.code %></td> 
-            <td><%= product.name %></td>
-            <td><%= product.power %></td>
-            <td><%= product.model %></td>
-            <td><%= product.description %></td>
-            <td><%= product.price %></td>
+            <td><%= simoncitos.simoncito %></td>
+            <td><%= simoncitos.codigo %></td> 
+            <td><%= simoncitos.nombre %></td>
+            <td><%= simoncitos.direccion %></td>
+            <td><%= simoncitos.referencia %></td>
+            <td><%= simoncitos.escuela %></td>
+            <td><%= simoncitos.DEA %></td>
+            <td><%= simoncitos.director %></td>
+            <td><%= simoncitos.telefono %></td>
+            <td><%= simoncitos.correo %></td>
             
             
-            <td><a href="/edit/<%=product.id%>" class="btn btn-dark">Editar</a>
-              <a href="/delete/<%=product.id%>" class="btn btn-dark">Eliminar</a>
+            <td><a href="/edit/<%=simoncitos.id%>" class="btn btn-dark">Editar</a>
+              <a href="/delete/<%=simoncitos.id%>" class="btn btn-dark">Eliminar</a>
             </td>
           <% }); %></td>
 
@@ -66,7 +72,7 @@
     </table>
   </div>
 
-<a href="/insert" class="btn btn-dark">Insertar producto</a>
+<a href="/insert" class="btn btn-dark">Insertar simoncitos</a>
 </tbody>
 
 </body>

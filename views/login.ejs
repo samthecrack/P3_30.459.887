@@ -1,71 +1,142 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link href="/stylesheets/style1.css" rel="stylesheet" type="text/css">
+  <title>Document</title>
+  <link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <header>
-    <div class="menu logo-nav">
-      <a href="/view" class="logo">LavaMovil</a>
-      <label class="menu-icon"><span class="fas fa-bars icomin"></span></label>
-      <nav class="navigation">
-        <ul>
-          <li><a href="/login">Administrar</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/destacados">Productos</a></li>
-            <li>Lava a tu ritmo, en cualquier lugar</li>
+    <div class="container-hero">
+      <div class="container hero">
+        <div class="customer-support">
+          <i class="fa-solid fa-headset"></i>
+          <div class="content-customer-support">
+            <span class="text">Soporte al cliente</span>
+            <span class="number">0414-2204369</span>
+          </div>
+        </div>
+
+        <div class="container-logo">
+          
+          <h1 class="logo"><a href="/">SENIFA GUARICO</a></h1>
+        </div>
+
+       <div>
+        <img src="../images/F8j0ABxWwAAHwb9-removebg-preview.png" alt="100" width="90">
+       </div>
+      </div>
+    </div>
+
+    <div class="container-navbar">
+      <nav class="navbar container">
+        <i class="fa-solid fa-bars"></i>
+        <ul class="menu">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/mision">Mision</a></li>
+          <li><a href="/vision">Vision</a></li>
+          <li><a href="/proyecciones">Proyecciones</a></li>
+          <li><a href="/login">Administracion</a></li>
+          <li><a href="/logros">Logros</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
+
+        
       </nav>
     </div>
   </header>
-  
-  <div class="container-contacto">
-  
 
-  <form action="/login" id="form" method="post">
-    <h2>Inicio</h2>
-    <br>
-    <label for="username">Nombre de Usuario</label>
-  
-    <input type="text" placeholder="Usuario" name="user" value="" required>
-
-    <label for="password" required>Contraseña</label>
-    <input type="password" placeholder="Contraseña" name="pass" value="" required>
-    
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button">
+  <div class="container_login">
+    <form action="/login" method="post">
+      <h1 class="contariner">Inicio de Sesión</h1>
+      <div class="form-group">
+          <label for="user">Nombre de usuario</label>
+          <input type="user" id="user" name="user" required>
+      </div>
+      <div class="form-group">
+          <label for="pass">Contraseña</label>
+          <input type="password" id="pass" name="pass" required>
+      </div>
+      <div class="form-group">
+          <button type="submit" href="/login">Iniciar</button>
+      </div>
   </form>
 
-  </div>
+</div>
 
-    <footer class="footer-section">
-      <div class="copyright-area">
-          <div class="container-footer">
-              <div class="row-footer">
-                  <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                      <div class="copyright-text">
-                          <p>Copyright &copy; 2020, todos los derechos reservados <a href="/view">LavaMovil</a></p>
-                      </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                      <div class="footer-menu">
-                          <ul>
-                            <li><a href="/login">Administrar</a></li>
-                            <li><a href="/nosotros">Nosotros</a></li>
-                            <li><a href="/sesion"> Puntuar productos</a></li>
-                            <li><a href="/client">Registrarse</a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
+
+  <footer class="footer">
+    <div class="container container-footer">
+      <div class="menu-footer">
+        <div class="contact-info">
+          <p class="title-footer">Información de Contacto</p>
+          <ul>
+            <li>
+              Dirección: Plaza Bolivar al lado del auditorio del "Brazil"
+            </li>
+            <li>Teléfono 1: 0414-2204369</li>
+            <li>Teléfono 2: 0412-1134738</li>
+            <li>EmaiL: senifa@gmail.com</li>
+          </ul>
+          <div class="social-icons">
+            <span class="facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </span>
+            <span class="twitter">
+              <i class="fa-brands fa-twitter"></i>
+            </span>
+            <span class="youtube">
+              <i class="fa-brands fa-youtube"></i>
+            </span>
+            <span class="pinterest">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </span>
+            <span class="instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </span>
           </div>
-      </div>
-    </footer>  
+        </div>
 
-   
+        <div class="information">
+          <p class="title-footer">Información</p>
+          <ul>
+            <li><a href="#">Acerca de Nosotros</a></li>
+            <li><a href="#">Información Adicional</a></li>
+            <li><a href="#">Politicas de Privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Contactános</a></li>
+          </ul>
+        </div>
+
+        
+
+        <div class="newsletter">
+          <p class="title-footer"></p>
+
+          <div class="content">
+            <p>
+             
+            </p>
+            
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>
+          Desarrollado por Prestadores de Servicio Comunitario de la UNERG &copy; 2024
+        </p>
+
+       
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://kit.fontawesome.com/81581fb069.js"
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="/stylesheets/style2.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <header>
@@ -19,6 +19,7 @@
         </div>
 
         <div class="container-logo">
+          
           <h1 class="logo"><a href="/">SENIFA GUARICO</a></h1>
         </div>
 
@@ -27,41 +28,73 @@
        </div>
       </div>
     </div>
+
     <div class="container-navbar">
       <nav class="navbar container">
         <i class="fa-solid fa-bars"></i>
         <ul class="menu">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/mision">Mision</a></li>
-          <li><a href="/vision">Vision</a></li>
-          <li><a href="/proyecciones">Proyecciones</a></li>
-          <li><a href="/login">Administracion</a></li>
-          <li><a href="/logros">Logros</a></li>
-          <li><a href="/blog">Blog</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/mision">Mision</a></li>
+            <li><a href="/vision">Vision</a></li>
+            <li><a href="/proyecciones">Proyecciones</a></li>
+            <li><a href="/login">Administracion</a></li>
+            <li><a href="/logros">Logros</a></li>
+            <li><a href="/blog">Blog</a></li>
         </ul>
+
+        
       </nav>
     </div>
   </header>
 
- 
-
-  <section class="banner_m">
-   
+  <main>
+    <div class="contenedor">
+      <a href="/ingresar" class="buton"> Ingresar</a> 
+      <a href="/filtrado" class="buton"> Filtrar</a> 
       
-        <div class="botones">
-                
-            <a href="/Tabla"><button class="fill"> Nomina  </button></a>
-            <a href="/matricula"><button class="fill">  Matricula  </button></a>
-            <a href="/index"><button class="fill">  Simoncitos  </button></a>
-
-           <a href="/municipios"><button class="fill">  municipios  </button></a>
-          </div>
-       
+        <table class="content-table">
+            <thead>
+          <tr>
            
-       
-   
-  </section>
- 
+            <th>Simoncito</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Referencia</th>
+            <th>Escuela</th>
+            <th>DEA</th> 
+            <th>Director</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+
+          </tr>
+        </thead> 
+        <tbody>
+          <tr>
+            <% simoncito.forEach(simoncitos => { %>
+                <tr>
+                  
+                  <td><%= simoncitos.simoncito %></td> 
+                  <td><%= simoncitos.codigo %></td>
+                  <td><%= simoncitos.nombre %></td>
+                  <td><%= simoncitos.direccion %></td>
+                  <td><%= simoncitos.referencia %></td>
+                  <td><%= simoncitos.escuela %></td>
+                  <td><%= simoncitos.DEA %></td>
+                  <td><%= simoncitos.director %></td>
+                  <td><%= simoncitos.telefono %></td>
+                  <td><%= simoncitos.correo %></td>
+
+                  <td>
+                    <a href="/editar_simoncito/<%=simoncitos.id%>" class="btn btn-dark">Editar</a>
+                    
+                  </td>
+
+                <% }); %></td>
+          </tr>
+        </tbody>
+        </table>
+  </main>
 
  
 

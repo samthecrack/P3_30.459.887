@@ -9,26 +9,39 @@
 <body>
 
     <form action="/edit/" method="post">
-        <input type="hidden" value="<%= producto.id %>" name="id">
-        <label for="code">Código</label>
-        <input type="text" name="code" value="<%= producto.code %>"
-        placeholder="Código del Producto" required>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" value="<%= producto.name %>"
-        placeholder="Nombre del Producto" required>
-        <label for="power">Marca</label>
-        <input type="number" name="power" value="<%= producto.power %>"
-        placeholder="Marca del Producto" required>
-        <label for="model">Modelo</label>
-        <input type="text" name="model" value="<%= producto.model %>"
-        placeholder="Modelo del Producto" required>
-        <label for="description">Descripción</label>
-        <textarea name="description" 
-        placeholder="Descripción del Producto" required><%= producto.description %></textarea>
-        <label for="price">Precio</label>
-        <input type="number" name="price" value="<%= producto.price %>"
-        placeholder="Precio del Producto" required>
-        <input type="submit" value="Editar">
+        <input type="hidden" value="<%= simoncitos.id %>" name="id">
+
+        <label for="simoncito">Simoncito</label>
+        <input type="text" name="simoncito" value="<%= simoncitos.simoncito %>" placeholder="Simoncito" required>
+
+        <label for="codigo">Codigo</label>
+        <input type="text" name="codigo" value="<%= simoncitos.codigo %>" placeholder="Codigo del simoncito" required>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" value="<%= simoncitos.nombre %>" placeholder="Nombre del simoncito" required>
+
+        <label for="direccion">Direccion</label>
+        <textarea type="text" name="direccion" value="<%= simoncitos.direccion %>" placeholder="Direccion del simoncito" required></textarea>
+
+        <label for="referencia">Referencia</label>
+        <input type="text" name="referencia" value="<%= simoncitos.referencia %>" placeholder="Referencia del simoncito" required>
+
+        <label for="escuela">Escuela</label>
+        <input type="text" name="escuela" value="<%= simoncitos.escuela %>" placeholder="Escuela vinculante" required>
+
+        <label for="DEA">DEA</label>
+        <input type="text" name="DEA" value="<%= simoncitos.DEA %>" placeholder="DEA del simoncito" required>
+
+        <label for="director">Director</label>
+        <input type="text" name="director" value="<%= simoncitos.director %>" placeholder="Director del simoncito" required>
+
+        <label for="telefono">Telefono</label>
+        <input type="text" name="telefono" value="<%= simoncitos.telefono %>" placeholder="Telefono de simoncito" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" name="correo" value="<%= simoncitos.correo %>" placeholder="Correo del simoncito" required>
+
+        <input type="submit" value="Editar" href="/index">
 
 
     </form>
